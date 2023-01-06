@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+}
+
+.contain{
+  padding: 0 50px;
+}
+.headerBgColor{
+  background-color: #FFC017;
+
+}
+.navOne{
+  font-size: 14px;
+  border-bottom: 1px solid black;
+
+}
+.row{
+  margin: 0
+}
+.trendIndex{
+  color: #E6E6E6;
+  font-weight:700 ;
+  font-size: 30px;
+  padding: 0 10px;
+}
