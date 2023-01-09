@@ -8,7 +8,7 @@ const HeadSection =({HeadTit,Tit,Btn})=>{
                 <Button tit ={Btn}/>
             </div>
             <div className="col-5  " >
-                <img  src={require("../image/svg.png")} alt="a" className="position-absolute end-0" />
+                <img  src={require("../image/svg.png")} alt="a" className="position-absolute end-0 "/>
             </div>
         </div>
     )
