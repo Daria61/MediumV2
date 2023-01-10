@@ -3,6 +3,7 @@ import Header from './component/header';
 import HeadSection from './component/HeadSection'
 import Trend from './component/trend'
 import Main from './component/main'
+import { useState } from 'react';
 let headTit = ["Our story", "Membership","Write", "Sign In"]
 let headSecTit = { HeadTit:"Stay curious.", Tit:"Discover stories, thinking, and expertise from writers on any topic.", Btn:"Start reading"}
 let aside =["Help", "Status", "Writers", "Blog", "Careers", "Privacy", "Tems", "About", "Text to speech"]

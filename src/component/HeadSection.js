@@ -1,7 +1,7 @@
 import Button from "./Button"
 const HeadSection =({HeadTit,Tit,Btn})=>{
     return(
-        <div className="headerBgColor row text-start " style={{paddingLeft:"50px", borderBottom:"1px solid black"}}>
+        <div className="headerBgColor row text-start " style={{paddingLeft:"50px",paddingTop:"70px", borderBottom:"1px solid black"}}>
             <div className="col-7 " style={{padding:"50px 0 140px"}}>
                 <h1 style={{fontSize:"106px"}}>{HeadTit}</h1>
                 <p style={{fontSize:"24px", width:"60%"} }>{Tit}</p>

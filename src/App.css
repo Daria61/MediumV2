@@ -12,7 +12,9 @@
 .navOne{
   font-size: 14px;
   border-bottom: 1px solid black;
-
+  position: fixed;
+  background-color: #FFC017;
+  z-index: 1000;
 }
 .row{
   margin: 0
