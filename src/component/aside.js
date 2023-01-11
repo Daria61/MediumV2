@@ -7,7 +7,7 @@ const aside =({footer ,info})=>{
     })
     console.log(category);
     return(
-           <div className="col-4 pe-5 position-absolute top-0 end-0  " >
+           <div className="col-4 d-none d-lg-block pe-5 position-absolute top-0 end-0  " >
                 <div>
                     <p  className="text-start" style={{fontSize:"16px", fontWeight:"bold"}}>DISCOVER MORE OF WHAT MATTERS TO YOU</p>
                 </div>

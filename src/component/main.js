@@ -1,10 +1,10 @@
 import Aside from "./aside"
 const main =({info, aside } )=>{
     return(
-        <div className="row contain position-relative ">
+        <div className="contain position-relative m-auto row" style={{maxWidth:"1150px"}} >
             {info.map((a)=>{
                 return(
-                    <div className=" col-8 my-2">
+                    <div className="col-12 my-2" style={{maxWidth:"700px"}}>
                         <div className="d-flex align-items-center">
                                 <img className='m-1' style={{width:"20px", height:"20px"}} src={a.createdUser.img} alt="a"/>
                                 <p className='fw-semibold m-0' style={{fontSize:"12px", }}>{a.createdUser.Name}</p>
@@ -14,7 +14,7 @@ const main =({info, aside } )=>{
                                    <div className='fw-bold text-start' style={{fontSize:"21px", }}>{a.head}</div>
                                    <p className="text-start" style={{color:"#757575", fontSize:"16px"}}>{a.title}</p>
                                    <div className='d-flex  align-items-center' style={{fontSize:"11px", color:"#757575"}}>
-                                   <p>{a.date.month} {a.date.day}, {a.date.year=="2023" ? "": a.date.year}</p>
+                                   <p>{a.date.month} {a.date.day}, {a.date.year==="2023" ? "": a.date.year}</p>
                                         <p className="mx-1">|</p>
                                         <p className="mx-1">{a.read}</p>
                                         <p className="mx-1">|</p>

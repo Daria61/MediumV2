@@ -6,7 +6,7 @@ const trend =({info})=>{
         }
     })
     return(
-        <div style={{padding:"50px", marginBottom:"50px"}} className="border-bottom ">
+        <div style={{padding:"50px", marginBottom:"50px",maxWidth:"1100px"}} className="border-bottom  d-inline-block ">
             <div className="d-flex">
                 <img src={require('../image/Frame.png')} alt="s" style={{width:"30px", height:"30px"}}/>
                 <p>TRENDING ON MEDIUM </p>
@@ -15,7 +15,7 @@ const trend =({info})=>{
                 {trendarr.map((a, Index)=>{
                     if( Index < 6 && a.isTrending === true){
                         return(
-                            <div className='d-flex col-4'>
+                            <div className='d-flex col-6 col-md-4 ' >
                                 <div className='trendIndex'>0{Index+1}</div>
                                 <div>
                                     <div className='d-flex align-items-center'>

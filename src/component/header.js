@@ -1,7 +1,7 @@
 import Button from "./Button"
 import Modal from "./modal"
 import {useState} from "react"
-const header =()=>{
+const Header =()=>{
     const [modal, setModal] = useState(false)
     let BtnTit = {tit:"Get started"} 
     const ModalStatus = ()=>{
@@ -12,7 +12,7 @@ const header =()=>{
             <div className="col-2 py-3">
                 <img src={require("../image/mediumlogo.png")} alt="a" className="w-100"/>
             </div>
-            <div className="col-6 row ">
+            <div className="col-6 row d-flex  flex-nowrap">
                 <div className="col d-flex align-items-center justify-content-end">
                      <button className="btn mx-2 mb-0">Our Story</button>
                      <button className="btn mx-2 mb-0">Membership</button>
@@ -29,4 +29,4 @@ const header =()=>{
         </div>
     )
 }
-export default header
+export default Header
