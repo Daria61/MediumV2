@@ -1,9 +1,16 @@
 import { useState } from 'react'
-const Modal =({modal, ModalStatus})=>{
+const Modal =({modal, ModalStatus , signstatus, setSignstatus  })=>{
+    const user = {mail : "ch.d@gmail.com", pas : 9988}
     const dis = modal? "block":"none";
     const [sign, setSign]= useState(false)
+    const [mail ,setMail] = useState("")
     const signMail =()=>{
         setSign(!sign)
+    }
+    const checkMail =()=>{
+        if(mail=== user.mail){
+            setSignstatus(!signstatus)
+        }
     }
     if(sign){
         return(
@@ -16,9 +23,9 @@ const Modal =({modal, ModalStatus})=>{
                </div>
                <div className='my-5'>
                     <p>Your email</p>
-                    <input className='border-0 border-bottom'/>
+                    <input className='border-0 border-bottom form-contol' type="text" value={mail} onChange={(e) =>{setMail(e.target.value)}}/>
                </div>
-               <button style={{border:"0", borderRadius:"20px", padding :"8px 80px", color:"white", backgroundColor:"black "}}>Continue</button>
+               <button style={{border:"0", borderRadius:"20px", padding :"8px 80px", color:"white", backgroundColor:"black "}} onClick={checkMail}>Continue</button>
                <div className='d-flex mt-4 justify-content-around' style={{color:"green"}} onClick={signMail}>
                    <div className='d-flex'><i class="bi bi-chevron-left "></i>
                    <p className='text-center'>All sign in options</p>

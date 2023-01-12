@@ -1,5 +1,5 @@
 import Aside from "./aside"
-const main =({info, aside } )=>{
+const main =({info, aside,signstatus } )=>{
     return(
         <div className="contain position-relative m-auto row" style={{maxWidth:"1150px"}} >
             {info.map((a)=>{
@@ -20,6 +20,7 @@ const main =({info, aside } )=>{
                                         <p className="mx-1">|</p>
                                         <p className="mx-1" style={{backgroundColor:"#F2F2F2", padding:"5px 10px" , borderRadius:"20px"}}>{a.key}</p>
                                         <p style={{color:"#FFC017"}}>{ a.isTrending ? <i class="fs-5 bi bi-star-fill"></i> : ""}</p>
+                                        {signstatus? <i class="bi bi-bookmark mb-3 ms-2 fs-6"></i> : ""}
                                     </div>
                                 </div>
                                 <div className="col-5">
