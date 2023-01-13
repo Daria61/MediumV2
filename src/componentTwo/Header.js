@@ -1,6 +1,5 @@
-const Header =({signstatus})=>{
-    console.log(signstatus);
-    if(signstatus){
+const Header =({afterSign})=>{
+    if(afterSign.signstatus){
         return(
             <div className="row justify-content-between p-2 border-bottom " style={{fontSize:"14px"}}>
                 <div className="col-3 d-flex  align-items-center">

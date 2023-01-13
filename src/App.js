@@ -9,13 +9,22 @@ let headSecTit = { HeadTit:"Stay curious.", Tit:"Discover stories, thinking, and
 let aside =["Help", "Status", "Writers", "Blog", "Careers", "Privacy", "Tems", "About", "Text to speech"]
 
 function App() {
-  const [signstatus, setSignstatus] = useState(false)
+  const filtObj={
+    filtStatus: false,
+    filtCategory: ""
+  }
+  const Obj ={
+    signstatus: false,
+    save : false
+  }
+  const [afterSign, setAfterSign] = useState(Obj)
+  const [filt , setFilt] = useState(filtObj)
   return (
     <div className="App">
-      <Header signstatus={signstatus}  setSignstatus={setSignstatus}/>
-      <HeadSection {...headSecTit} signstatus={signstatus}  setSignstatus={setSignstatus} />
+      <Header afterSign={afterSign}  setAfterSign={setAfterSign}/>
+      <HeadSection {...headSecTit} afterSign={afterSign}  setAfterSign={setAfterSign} />
       <Trend info={News} />
-      <Main info={News} aside={aside} signstatus={signstatus} />
+      <Main info={News} aside={aside} afterSign={afterSign} setAfterSign={setAfterSign} filt={filt} setFilt={setFilt} />
     </div>
   );
 }

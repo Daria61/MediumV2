@@ -1,6 +1,6 @@
 import Button from "./Button"
-const HeadSection =({HeadTit,Tit,Btn,signstatus})=>{
-    if(!signstatus){
+const HeadSection =({HeadTit,Tit,Btn,afterSign})=>{
+    if(!afterSign.signstatus){
         return(
             <div className="headerBgColor row text-start " style={{paddingLeft:"50px",paddingTop:"70px", borderBottom:"1px solid black"}}>
                 <div className="col-7 " style={{padding:"50px 0 140px"}}>

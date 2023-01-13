@@ -1,11 +1,13 @@
-const aside =({footer ,info})=>{
+const aside =({footer ,info, setFilt, filt})=>{
     let category =[]
     info.map((a)=>{
         if(!category.includes(a.category)){
             category.push(a.category)
         }
     })
-    console.log(category);
+    const Filter =(para)=>{
+        setFilt({...filt, filtStatus: true, filtCategory: para})
+    }
     return(
            <div className="col-4 d-none d-lg-block pe-5 position-absolute top-0 end-0  " >
                 <div>
@@ -14,7 +16,7 @@ const aside =({footer ,info})=>{
                 <div className="d-flex flex-wrap align-items-center mb-3">
                     {category.map((a)=>{
                         return(
-                            <div className="border d-flex  align-items-center rounded-1 m-1" style={{padding:"6px 12px" }}><a style={{fontSize:"12px", color:"#757575", textDecoration:"none"}}  href="a" >{a}</a></div>
+                            <div onClick={()=>Filter(a)} className="border d-flex  align-items-center rounded-1 m-1" style={{padding:"6px 12px" }}><p style={{fontSize:"12px", color:"#757575", marginBottom:"0px"}}>{a}</p></div>
                         )
                     })}
                 </div>

@@ -1,15 +1,15 @@
 import { useState } from 'react'
-const Modal =({modal, ModalStatus , signstatus, setSignstatus  })=>{
+const Modal =({modal, ModalStatus , afterSign, setAfterSign  })=>{
     const user = {mail : "ch.d@gmail.com", pas : 9988}
     const dis = modal? "block":"none";
-    const [sign, setSign]= useState(false)
     const [mail ,setMail] = useState("")
+    const [ sign, setSign] = useState(false)
     const signMail =()=>{
-        setSign(!sign)
+        setSign(true)
     }
     const checkMail =()=>{
         if(mail=== user.mail){
-            setSignstatus(!signstatus)
+            setAfterSign({...afterSign , signstatus: true})
         }
     }
     if(sign){
