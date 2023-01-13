@@ -1,7 +1,13 @@
 import Aside from "./aside"
-const main =({info, aside, afterSign , setFilt, filt, setAfterSign } )=>{
-    const Btnsave=()=>{
-        setAfterSign({...afterSign , save: !afterSign.save})
+const main =({info, aside, afterSign , setFilt, filt, setAfterSign , setData} )=>{
+    const Btnsave=(para)=>{
+       setData( info.map((a)=>{
+        if(a.id=== para.id){
+            return {...a, save: !a.save}
+        }
+        return a
+    })
+       )
     }
     if(filt.filtStatus){
         let bb = info.filter(a=> a.category === filt.filtCategory)
@@ -25,7 +31,7 @@ const main =({info, aside, afterSign , setFilt, filt, setAfterSign } )=>{
                                             <p className="mx-1">|</p>
                                             <p className="mx-1" style={{backgroundColor:"#F2F2F2", padding:"5px 10px" , borderRadius:"20px"}}>{a.key}</p>
                                             <p style={{color:"#FFC017"}}>{ a.isTrending ? <i class="fs-5 bi bi-star-fill"></i> : ""}</p>
-                                            <p  onClick={()=>Btnsave(a)}> {afterSign.signstatus? <i class="bi bi-bookmark-fill"></i> : ""}</p>
+                                            <p  onClick={()=>Btnsave(a)}> {afterSign? <i style={{color: a.save? "#FFC017": ""}} class="bi bi-bookmark-fill fs-6 ps-2"></i> : ""}</p>
                                            
                                         </div>
                                     </div>
@@ -60,7 +66,7 @@ const main =({info, aside, afterSign , setFilt, filt, setAfterSign } )=>{
                                         <p className="mx-1">|</p>
                                         <p className="mx-1" style={{backgroundColor:"#F2F2F2", padding:"5px 10px" , borderRadius:"20px"}}>{a.key}</p>
                                         <p style={{color:"#FFC017"}}>{ a.isTrending ? <i class="fs-5 bi bi-star-fill"></i> : ""}</p>
-                                        {afterSign.signstatus? <i class="bi bi-bookmark mb-3 ms-2 fs-6"></i> : ""}
+                                        <p  onClick={()=>Btnsave(a)}> {afterSign? <i style={{color: a.save? "#FFC017": ""}} class="bi bi-bookmark-fill fs-6 ps-2"></i> : ""}</p>
                                     </div>
                                 </div>
                                 <div className="col-5">

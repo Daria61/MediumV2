@@ -9,7 +9,7 @@ const Header =({afterSign, setAfterSign})=>{
     const ModalStatus = ()=>{
         setModal(!modal)
     }
-    if(afterSign.signstatus){
+    if(afterSign){
         return(
             <SignHeader afterSign={afterSign}  setAfterSign={setAfterSign}/>
         )

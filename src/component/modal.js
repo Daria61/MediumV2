@@ -9,7 +9,7 @@ const Modal =({modal, ModalStatus , afterSign, setAfterSign  })=>{
     }
     const checkMail =()=>{
         if(mail=== user.mail){
-            setAfterSign({...afterSign , signstatus: true})
+            setAfterSign(true)
         }
     }
     if(sign){

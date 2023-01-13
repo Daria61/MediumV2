@@ -13,18 +13,15 @@ function App() {
     filtStatus: false,
     filtCategory: ""
   }
-  const Obj ={
-    signstatus: false,
-    save : false
-  }
-  const [afterSign, setAfterSign] = useState(Obj)
+  const [afterSign, setAfterSign] = useState(false)
   const [filt , setFilt] = useState(filtObj)
+  const [data, setData]= useState(News)
   return (
     <div className="App">
       <Header afterSign={afterSign}  setAfterSign={setAfterSign}/>
       <HeadSection {...headSecTit} afterSign={afterSign}  setAfterSign={setAfterSign} />
-      <Trend info={News} />
-      <Main info={News} aside={aside} afterSign={afterSign} setAfterSign={setAfterSign} filt={filt} setFilt={setFilt} />
+      <Trend info={data} />
+      <Main info={data} aside={aside} setData={setData} afterSign={afterSign} setAfterSign={setAfterSign} filt={filt} setFilt={setFilt} />
     </div>
   );
 }

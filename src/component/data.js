@@ -9,6 +9,7 @@
         category:"Writing", 
         key:"Long Covid",
         read:"9 min read",
+        save: false,
         createdUser:{ Name:"Dr. Tom Frieden", userId:"1", img:require('../image/profile.png') ,organization :""} 
         },
         {id:"2", 
@@ -20,6 +21,7 @@
         category:"Machine Learning", 
         key:"Futurism",
         read:"11 min read",
+        save: false,
         createdUser:{ Name:"David Bowles", userId:"2", img:require('../image/profile.png') ,organization :""} 
         },
         {id:"3", 
@@ -31,6 +33,7 @@
         category:"Relationships", 
         key:"Parental Alienation",
         read:"6 min read",
+        save: false,
         createdUser:{ Name:"Ed Erginziger", userId:"3", img:require('../image/profile.png'), organization :"  Invisible Illness"} 
         },
         {id:"4", 
@@ -42,6 +45,7 @@
         category:"Technology", 
         key:"Gpt 3",
         read:"4 min read",
+        save: false,
         createdUser:{ Name:"Thomas Smith", userId:"4", img:require('../image/profile.png') ,organization :""} 
         },
         {id:"5", 
@@ -53,6 +57,7 @@
         category:"Productivity", 
         key:"Music",
         read:"3 min read",
+        save: false,
         createdUser:{ Name:"Allegra Hobbs", userId:"5", img:require('../image/profile.png') ,organization :" Forge"} 
         },
         {id:"6", 
@@ -64,6 +69,7 @@
         category:"Productivity", 
         key:"Data",
         read:"7 min read",
+        save: false,
         createdUser:{ Name:"Julie Zhou ", userId:"5", img:require('../image/profile.png') ,organization :""} 
         },
         {id:"7", 
@@ -75,6 +81,7 @@
         category:"Self Improvement", 
         key:"Game of Thrones",
         read:"7 min read",
+        save: false,
         createdUser:{ Name:"Elliot Graebert", userId:"6", img:require('../image/profile.png') ,organization :""} 
         },
         {id:"8", 
@@ -86,6 +93,7 @@
         category:"Data Science", 
         key:"Mental Health",
         read:"8 min read",
+        save: false,
         createdUser:{ Name:"Mindy Stern", userId:"7", img:require('../image/profile.png') ,organization :" Thoughts And Ideas"} 
         },
         {id:"9", 
@@ -97,6 +105,7 @@
         category:"Self Improvement", 
         key:"Twitter",
         read:"14 min read",
+        save: false,
         createdUser:{ Name:"danah boyd", userId:"7", img:require('../image/profile.png') ,organization :""} 
         },
       ]
