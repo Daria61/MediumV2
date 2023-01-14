@@ -1,6 +1,5 @@
 import { useState } from 'react'
-const Modal =({modal, ModalStatus , afterSign, setAfterSign  })=>{
-    const user = {mail : "ch.d@gmail.com", pas : 9988}
+const Modal =({modal, ModalStatus , afterSign, setAfterSign , user })=>{
     const dis = modal? "block":"none";
     const [mail ,setMail] = useState("")
     const [ sign, setSign] = useState(false)
@@ -23,7 +22,7 @@ const Modal =({modal, ModalStatus , afterSign, setAfterSign  })=>{
                </div>
                <div className='my-5'>
                     <p>Your email</p>
-                    <input className='border-0 border-bottom form-contol' type="text" value={mail} onChange={(e) =>{setMail(e.target.value)}}/>
+                    <input className='border-0 border-bottom form-contol' type="text" value={mail} onChange={(e) =>{setMail(e.target.value)}} style={{outline:"none"}}/>
                </div>
                <button style={{border:"0", borderRadius:"20px", padding :"8px 80px", color:"white", backgroundColor:"black "}} onClick={checkMail}>Continue</button>
                <div className='d-flex mt-4 justify-content-around' style={{color:"green"}} onClick={signMail}>

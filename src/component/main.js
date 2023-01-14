@@ -1,5 +1,5 @@
 import Aside from "./aside"
-const main =({info, aside, afterSign , setFilt, filt, setAfterSign , setData} )=>{
+const main =({info, aside, afterSign , setFilt, filt, setAfterSign , setData, user})=>{
     const Btnsave=(para)=>{
        setData( info.map((a)=>{
         if(a.id=== para.id){
@@ -18,7 +18,7 @@ const main =({info, aside, afterSign , setFilt, filt, setAfterSign , setData} )=
                         <div className="col-12 my-2" style={{maxWidth:"700px"}}>
                             <div className="d-flex align-items-center">
                                     <img className='m-1' style={{width:"20px", height:"20px"}} src={a.createdUser.img} alt="a"/>
-                                    <p className='fw-semibold m-0' style={{fontSize:"12px", }}>{a.createdUser.Name}</p>
+                                    <p className='fw-semibold m-0' style={{fontSize:"12px", }}>{afterSign && user.Name ===a.createdUser.Name? "You" : a.createdUser.Name}</p>
                                 </div>
                                 <div className="row">
                                     <div className="col-7">
@@ -29,7 +29,7 @@ const main =({info, aside, afterSign , setFilt, filt, setAfterSign , setData} )=
                                             <p className="mx-1">|</p>
                                             <p className="mx-1">{a.read}</p>
                                             <p className="mx-1">|</p>
-                                            <p className="mx-1" style={{backgroundColor:"#F2F2F2", padding:"5px 10px" , borderRadius:"20px"}}>{a.key}</p>
+                                            <p className="mx-1" style={{backgroundColor:"#F2F2F2", padding:"5px 10px" , borderRadius:"20px"}}>{a.category}</p>
                                             <p style={{color:"#FFC017"}}>{ a.isTrending ? <i class="fs-5 bi bi-star-fill"></i> : ""}</p>
                                             <p  onClick={()=>Btnsave(a)}> {afterSign? <i style={{color: a.save? "#FFC017": ""}} class="bi bi-bookmark-fill fs-6 ps-2"></i> : ""}</p>
                                            
@@ -53,7 +53,7 @@ const main =({info, aside, afterSign , setFilt, filt, setAfterSign , setData} )=
                     <div className="col-12 my-2" style={{maxWidth:"700px"}}>
                         <div className="d-flex align-items-center">
                                 <img className='m-1' style={{width:"20px", height:"20px"}} src={a.createdUser.img} alt="a"/>
-                                <p className='fw-semibold m-0' style={{fontSize:"12px", }}>{a.createdUser.Name}</p>
+                                <p className='fw-semibold m-0' style={{fontSize:"12px", }}>{afterSign && user.Name ===a.createdUser.Name? "You" : a.createdUser.Name}</p>
                             </div>
                             <div className="row">
                                 <div className="col-7">
@@ -64,7 +64,7 @@ const main =({info, aside, afterSign , setFilt, filt, setAfterSign , setData} )=
                                         <p className="mx-1">|</p>
                                         <p className="mx-1">{a.read}</p>
                                         <p className="mx-1">|</p>
-                                        <p className="mx-1" style={{backgroundColor:"#F2F2F2", padding:"5px 10px" , borderRadius:"20px"}}>{a.key}</p>
+                                        <p className="mx-1" style={{backgroundColor:"#F2F2F2", padding:"5px 10px" , borderRadius:"20px"}}>{a.category}</p>
                                         <p style={{color:"#FFC017"}}>{ a.isTrending ? <i class="fs-5 bi bi-star-fill"></i> : ""}</p>
                                         <p  onClick={()=>Btnsave(a)}> {afterSign? <i style={{color: a.save? "#FFC017": ""}} class="bi bi-bookmark-fill fs-6 ps-2"></i> : ""}</p>
                                     </div>

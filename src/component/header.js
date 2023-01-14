@@ -2,7 +2,7 @@ import Button from "./Button"
 import Modal from "./modal"
 import {useState} from "react"
 import SignHeader from '../componentTwo/Header'
-const Header =({afterSign, setAfterSign})=>{
+const Header =({afterSign, setAfterSign, data ,setData, user})=>{
     const [modal, setModal] = useState(false)
     const [scroll, setScroll] = useState(false)
     let BtnTit = {tit:"Get started"} 
@@ -11,7 +11,7 @@ const Header =({afterSign, setAfterSign})=>{
     }
     if(afterSign){
         return(
-            <SignHeader afterSign={afterSign}  setAfterSign={setAfterSign}/>
+            <SignHeader afterSign={afterSign}  setAfterSign={setAfterSign}  data={data} setData={setData} user={user}/>
         )
     }
     const changeColor =()=>{
@@ -39,7 +39,7 @@ const Header =({afterSign, setAfterSign})=>{
                 </div>
             </div>
             <div>
-                {modal && (<Modal ModalStatus = {ModalStatus} modal={modal} afterSign={afterSign}  setAfterSign={setAfterSign}/>)}
+                {modal && (<Modal ModalStatus = {ModalStatus} modal={modal} afterSign={afterSign}  setAfterSign={setAfterSign} user={user}/>)}
             </div>
         </div>
     )

@@ -37,3 +37,26 @@
   top: 30px;
   margin-bottom: 30px;
 }
+.writemodal-body{
+  background-color: white;
+  width: 1100px;
+  position: absolute;
+  margin: 0 auto;
+  padding: 50px;
+  top: 30px;
+  margin-bottom: 30px;
+}
+.profileCon{
+  width: 100%;
+  height: 100%;
+}
+.profile{
+  width: 250px;
+  height: 220px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: absolute;
+  background-color: white;
+  right: 15px;
+  top: 70px;
+}

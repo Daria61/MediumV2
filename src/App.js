@@ -16,12 +16,13 @@ function App() {
   const [afterSign, setAfterSign] = useState(false)
   const [filt , setFilt] = useState(filtObj)
   const [data, setData]= useState(News)
+  const user = {mail : "ch.d@gmail.com", pas : 9988 , Name: "Ch. Erdenedari", userId:"abc", img:require("./image/profile.png") }
   return (
     <div className="App">
-      <Header afterSign={afterSign}  setAfterSign={setAfterSign}/>
+      <Header afterSign={afterSign}  setAfterSign={setAfterSign} data={data} setData={setData} user={user}/>
       <HeadSection {...headSecTit} afterSign={afterSign}  setAfterSign={setAfterSign} />
       <Trend info={data} />
-      <Main info={data} aside={aside} setData={setData} afterSign={afterSign} setAfterSign={setAfterSign} filt={filt} setFilt={setFilt} />
+      <Main info={data} aside={aside} setData={setData} afterSign={afterSign} setAfterSign={setAfterSign} filt={filt} setFilt={setFilt} user={user}/>
     </div>
   );
 }
