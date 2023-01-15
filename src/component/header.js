@@ -2,16 +2,19 @@ import Button from "./Button"
 import Modal from "./modal"
 import {useState} from "react"
 import SignHeader from '../componentTwo/Header'
-const Header =({afterSign, setAfterSign, data ,setData, user})=>{
+const Header =({afterSign, setAfterSign, data ,setData, user, filt, setFilt})=>{
     const [modal, setModal] = useState(false)
     const [scroll, setScroll] = useState(false)
     let BtnTit = {tit:"Get started"} 
     const ModalStatus = ()=>{
         setModal(!modal)
     }
+    const refresh=()=>{
+        setFilt({...filt, filtStatus: false, filtCategory: ""})
+    }
     if(afterSign){
         return(
-            <SignHeader afterSign={afterSign}  setAfterSign={setAfterSign}  data={data} setData={setData} user={user}/>
+            <SignHeader afterSign={afterSign}  setAfterSign={setAfterSign}  data={data} setData={setData} user={user} refresh={refresh}/>
         )
     }
     const changeColor =()=>{
@@ -25,7 +28,7 @@ const Header =({afterSign, setAfterSign, data ,setData, user})=>{
     return (
         <div className="row contain justify-content-between  navOne" style={scroll? {backgroundColor:"white"}:  {backgroundColor:"#FFC017"} }  >
             <div className="col-2 py-3">
-                <img src={require("../image/mediumlogo.png")} alt="a" className="w-100"/>
+                <img src={require("../image/mediumlogo.png")} alt="a" className="w-100" onClick={refresh}/>
             </div>
             <div className="col-6 row d-flex  flex-nowrap">
                 <div className="col d-flex align-items-center justify-content-end">

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Write from '../component/write'
-const Header =({afterSign, data ,setData, user})=>{
+const Header =({afterSign, data ,setData, user, refresh})=>{
     const [writeModal, setWriteModal] = useState(false)
     const [play, setPlay]=useState(false)
     const writeModalStatus=()=>{
@@ -17,7 +17,7 @@ const Header =({afterSign, data ,setData, user})=>{
                     {writeModal && (<Write writeModal={writeModal} setWriteModal={setWriteModal}  data={data} setData={setData} writeModalStatus={writeModalStatus} user={user}/>)}
                 </div>
                 <div className="col-3 d-flex  align-items-center">
-                    <img src={require('../imageTwo/Vector.png')} alt="a" className='p-2 me-3'/>
+                    <img src={require('../imageTwo/Vector.png')} alt="a" className='p-2 me-3' onClick={refresh}/>
                     <div style={{backgroundColor:"#F5F2F6", borderRadius:"20px", padding:"5px 12px", display:"flex"}}>
                         <i class="bi bi-search"></i>
                         <input className='border-0' placeholder='Search Medium' type="text" style={{backgroundColor:" #F5F2F6", outline:"none"}}/>
