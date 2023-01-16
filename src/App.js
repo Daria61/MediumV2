@@ -26,6 +26,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<><HeadSection {...headSecTit} afterSign={afterSign}  setAfterSign={setAfterSign} /><Trend info={data}/>, <Main  info={data} aside={aside} setData={setData} afterSign={afterSign} setAfterSign={setAfterSign} filt={filt} setFilt={setFilt} user={user}/></>}></Route>
         <Route path="/ourstory" element={<OurStory/>}></Route>
+        <Route path="/"/>
       </Routes>
      
     </div>
