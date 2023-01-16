@@ -1,6 +1,59 @@
 import React from 'react'
 
-export default function ourStory() {
+const empArr = [
+  {id:"1",
+  Name: "Erica Dhawan",
+  img: require("../image/mediumworker.png")
+  },
+  {id:"2",
+  Name: "Devon Price",
+  img: require("../image/mediumworker.png")
+  },
+  {id:"3",
+  Name: "GEN",
+  img: require("../image/mediumworker.png")
+  },
+  {id:"4",
+  Name: " Scott Galloway",
+  img: require("../image/mediumworker.png")
+  },
+  {id:"5",
+  Name: " Kaki OKumura",
+  img: require("../image/mediumworker.png")
+  },
+  {id:"6",
+  Name: " Hal H.Harris",
+  img: require("../image/mediumworker.png")
+  },
+  {id:"7",
+  Name: "OneZero",
+  img: require("../image/mediumworker.png")
+  },
+  {id:"8",
+  Name: " Carvell Wallace",
+  img: require("../image/mediumworker.png")
+  },
+  {id:"9",
+  Name: " Elemental",
+  img: require("../image/mediumworker.png")
+  },
+  {id:"10",
+  Name: " Sarah Cottrell",
+  img: require("../image/mediumworker.png")
+  },
+  {id:"11",
+  Name: " Forge",
+  img: require("../image/mediumworker.png")
+  },
+  {id:"12",
+  Name: " LEVEL",
+  img: require("../image/mediumworker.png")
+  },
+]
+
+export default function ourStory({setHeadColor}) {
+  setHeadColor("white")
+
   return (
     <div>
       <div className='border-bottom ' style={{padding:"100px 0"}}>
@@ -34,6 +87,32 @@ export default function ourStory() {
           <p style={{width:"600px", margin:"0 auto"}}>
           Anyone can write on Medium. Thought-leaders, journalists, experts, and individuals with unique perspectives share their thinking here. You’ll find pieces by independent writers from around the globe, stories we feature and leading authors, and smart takes on our own suite of blogs and publications.
           </p>
+        </div>
+        <div className='row justify-content-between'>
+          {empArr.map((a)=>{
+            return(
+              <div className='col-4 '>
+                <div className='border-top border-dark py-3 mx-2 d-flex align-items-center'>
+                  <img src={a.img} alt="" style={{width:"50px"}}/>
+                  <h3 className='m-0 ms-2'>{a.Name}</h3>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+        <div className='bg-dark row '>
+          <div className='col-6 p-5'>
+            <h1 style={{fontSize:"80px", color:"white"}}>Over 100 million readers and growing.</h1>
+          </div>
+          <div className='col-6 border-start p-5'>
+            {/* <img src={require("../image")} alt=""/> */}
+            <p style={{color:"white"}}>
+            "There’s no other place that combines such an excellent level of writing with a truly engaged and active community. Medium is truly where ideas are born, shared, and spread."
+            </p>
+            <p>
+              Jasmine Bina
+            </p>
+          </div>
         </div>
       </div>
     </div>
