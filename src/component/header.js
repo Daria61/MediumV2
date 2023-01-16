@@ -32,9 +32,9 @@ const Header =({afterSign, setAfterSign, data ,setData, user, filt, setFilt})=>{
             </div>
             <div className="col-6 row d-flex  flex-nowrap">
                 <div className="col d-flex align-items-center justify-content-end">
-                     <button className="btn mx-2 mb-0">Our Story</button>
-                     <button className="btn mx-2 mb-0">Membership</button>
-                     <button className="btn mx-2 mb-0">Write</button>
+                     <button className="btn mx-2 mb-0"><a href="/ourstory">Our Story</a></button>
+                     <button className="btn mx-2 mb-0"><a href="/membership">Membership</a></button>
+                     <button className="btn mx-2 mb-0"><a href="/write">Write</a></button>
                      <button className="btn mx-2 mb-0" onClick={ModalStatus}>Sign in </button>
                 </div>
                  <div className="col-3 d-flex align-items-center">

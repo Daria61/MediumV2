@@ -60,3 +60,7 @@
   right: 15px;
   top: 70px;
 }
+a{
+  text-decoration: none;
+  color: inherit;
+}
