@@ -4,6 +4,7 @@ const aside =({footer ,info, setFilt, filt})=>{
         if(!category.includes(a.category)){
             category.push(a.category)
         }
+        return category
     })
     const Filter =(para)=>{
         setFilt({...filt, filtStatus: true, filtCategory: para})

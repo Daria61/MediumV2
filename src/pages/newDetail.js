@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 export default function NewDetail({setHeadColor}) {
   setHeadColor("#fff")
     const {id} = useParams()
-    const showNow = Data.filter((a)=> id == a.id)
+    const showNow = Data.filter((a)=> id === a.id)
     console.log(showNow);
   return (
     <div>

@@ -1,22 +1,15 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 
 export default function Dheader() {
   return (
     <div>
         <header className='navbar bg-light navbar-expand-lg'>
-        <div className='row'>
-        <div className='col'>
-          <NavLink className='link' to='/'  style={({isActive})=>({color: isActive ? "blue": "black" })}>Home</NavLink>
+        <div className='row align-items-center'>
+          <div className='col-2'>
+            <img src={require('../image/mediumlogo.png')} alt="" className='w-75'/>
           </div>
-          <div className='col'>
-          <NavLink className='link' to='/main'  style={({isActive})=>({color: isActive ? "blue": "black" })}>Main</NavLink>
-          </div>
-          <div className='col'>
-          <NavLink className='link' to='/aboutus' style={({isActive})=>({color: isActive ? "blue": "black" })}>AboutUs</NavLink>
-          </div>
-          <div className='col'>
-          <NavLink className='link' to='/contact'  style={({isActive})=>({color: isActive ? "blue": "black" })}>Contact</NavLink>
+          <div className='col-6'>
+            <input type='text' placeholder='search' className='w-100 rounded-5 outline-none border-0 p-2'/>
           </div>
         </div>
       </header>

@@ -16,21 +16,21 @@ const Header =({afterSign, data ,setData, user, refresh, setAdmin})=>{
                 <div>
                     {writeModal && (<Write writeModal={writeModal} setWriteModal={setWriteModal}  data={data} setData={setData} writeModalStatus={writeModalStatus} user={user}/>)}
                 </div>
-                <div className="col-3 d-flex  align-items-center">
+                <div className="col-4 d-flex  align-items-center">
                     <img src={require('../imageTwo/Vector.png')} alt="a" className='p-2 me-3' onClick={refresh}/>
                     <div style={{backgroundColor:"#F5F2F6", borderRadius:"20px", padding:"5px 12px", display:"flex"}}>
                         <i class="bi bi-search"></i>
                         <input className='border-0' placeholder='Search Medium' type="text" style={{backgroundColor:" #F5F2F6", outline:"none"}}/>
                     </div>
                 </div>
-                <div className="col-6 col-md-3 row align-items-center m-0 justify-content-end">
+                <div className="col-8 col-md-3 row align-items-center m-0 justify-content-around">
                     <div className='col-3 col-md-3 d-flex' style={{color:"#706E72"}}>
                         <i class="bi bi-pencil-square"></i>
                         <p className='px-1 m-0' onClick={()=>setWriteModal(true)}>Write</p>
-                        <p className='px-1 m-0' onClick={()=>setAdmin(true)}>Admin</p>
                     </div>
+                    <button className='btn btn-outline-dark col-3' onClick={()=>setAdmin(true)}> Admin</button>
                     <div className='col-3 col-md-3'>
-                    <i class="bi bi-bell"></i>
+                        <i class="bi bi-bell"></i>
                     </div>
                     <div className='col-3 col-md-3 d-flex align-items-center' onClick={showProfile}>
                         <img src={require('../image/profile.png')} alt="a" style={{width:"30px", height:"30px"}}/>
