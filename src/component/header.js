@@ -2,7 +2,7 @@
 import Modal from "./modal"
 import {useState} from "react"
 import SignHeader from '../componentTwo/Header'
-const Header =({afterSign, setAfterSign, data ,setData, user, filt, setFilt, headColor, setHeadColor})=>{
+const Header =({afterSign, setAfterSign, data ,setData, user, filt, setFilt, headColor, setHeadColor, setAdmin})=>{
     
     const [modal, setModal] = useState(false)
     const [scroll, setScroll] = useState(false)
@@ -14,7 +14,7 @@ const Header =({afterSign, setAfterSign, data ,setData, user, filt, setFilt, hea
     }
     if(afterSign){
         return(
-            <SignHeader afterSign={afterSign}  setAfterSign={setAfterSign}  data={data} setData={setData} user={user} refresh={refresh}/>
+            <SignHeader afterSign={afterSign}  setAfterSign={setAfterSign}  data={data} setData={setData} user={user} refresh={refresh} setAdmin={setAdmin}/>
         )
     }
     let color = headColor

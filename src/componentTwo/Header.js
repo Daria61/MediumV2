@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Write from '../component/write'
-const Header =({afterSign, data ,setData, user, refresh})=>{
+const Header =({afterSign, data ,setData, user, refresh, setAdmin})=>{
     const [writeModal, setWriteModal] = useState(false)
     const [play, setPlay]=useState(false)
     const writeModalStatus=()=>{
@@ -27,6 +27,7 @@ const Header =({afterSign, data ,setData, user, refresh})=>{
                     <div className='col-3 col-md-3 d-flex' style={{color:"#706E72"}}>
                         <i class="bi bi-pencil-square"></i>
                         <p className='px-1 m-0' onClick={()=>setWriteModal(true)}>Write</p>
+                        <p className='px-1 m-0' onClick={()=>setAdmin(true)}>Admin</p>
                     </div>
                     <div className='col-3 col-md-3'>
                     <i class="bi bi-bell"></i>
