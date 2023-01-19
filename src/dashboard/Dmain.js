@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Routes, Route} from 'react-router-dom'
 import Dashboard from './Dashboard'
 import Dheader from './Dheader'
@@ -8,6 +8,15 @@ import Dnews from './Dnews'
 import Duser from './Duser'
 
 export default function Main() {
+  const [news, setNews] =useState()
+  const [err, setErr] = useState()
+  fetch('https://newsapi.org/v2/everything?q=world&apiKey=57f263c59a5c451d8dcf306599bde48c')
+  .then((res)=>res.json())
+  .then((data)=>{
+    console.log(data);
+    setNews(data)
+  })
+  .catch((err)=> setErr(err))
   return (
     <div>
       <Dheader/>       
