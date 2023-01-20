@@ -11,15 +11,14 @@ export default function Main() {
   const [news, setNews] =useState([])
   const [err, setErr] = useState("")
   useEffect(()=>{
-    fetch('http://192.168.1.50:4040/news')
+    fetch('https://medium-api-psi.vercel.app/api/news')
   .then((res)=>res.json())
   .then((data)=>{
     console.log(data);
-    setNews(data.news)
+    setNews(data.result)
   })
   .catch((err)=> setErr(err))
-  },[
-  ])
+  },[])
 
   return (
     <div>

@@ -10,7 +10,16 @@ import OurStory from "./pages/ourStory"
 import Write from './pages/write';
 import NewDetail from './pages/newDetail';
 import Membership from "./pages/membership"
-import Dashboard from './dashboard/Dmain'
+
+
+import Dashboard from '../src/dashboard/Dashboard'
+// import Dheader from '../src/dashboard/Dheader'
+import Home from '../src/dashboard/Dhome'
+import Lay from '../src/dashboard/DLay'
+import Dnews from '../src/dashboard/Dnews'
+import Duser from '../src/dashboard/Duser'
+
+
 let headSecTit = { HeadTit:"Stay curious.", Tit:"Discover stories, thinking, and expertise from writers on any topic.", Btn:"Start reading"}
 let aside =["Help", "Status", "Writers", "Blog", "Careers", "Privacy", "Tems", "About", "Text to speech"]
 
@@ -27,18 +36,31 @@ function App() {
   const user = {mail : "ch.d@gmail.com", pas : 9988 , Name: "Ch. Erdenedari", userId:"abc", img:require("./image/profile.png") }
   return (
     <div className="App">
-      {admin? 
+      {
        <>
-       <Dashboard/>
-       </>
-       :<>
-         <Header afterSign={afterSign}  setAfterSign={setAfterSign} data={data} setData={setData} user={user} filt={filt} setFilt={setFilt} headColor={headColor} setHeadColor={setHeadColor} setAdmin={setAdmin}/>
+       {/* <Dashboard/> */}
+
+       <Routes>
+        <Route path='/admin' element={<Lay news={news}/>}>
+          <Route index path='/admin/home' element={<Home news={news}/>}></Route>
+          <Route path='/admin/dashboard' element={<Dashboard/>}></Route>
+          <Route path='/admin/news' element={<Dnews news={news}/>} ></Route>
+          <Route path='/admin/users' element={<Duser/>}></Route>
+        </Route>
+      </Routes>
+       
+       
+         
          <Routes>
-           <Route exact path="/" element={<><HeadSection {...headSecTit} afterSign={afterSign}  setAfterSign={setAfterSign} /><Trend info={data}/>, <Main  info={data} aside={aside} setData={setData} afterSign={afterSign} setAfterSign={setAfterSign} filt={filt} setFilt={setFilt} user={user}/></>}></Route>
+          <Route path='/' element={<Header afterSign={afterSign}  setAfterSign={setAfterSign} data={data} setData={setData} user={user} filt={filt} setFilt={setFilt} headColor={headColor} setHeadColor={setHeadColor} setAdmin={setAdmin}/>}>
+
+          
+           <Route index element={<><HeadSection {...headSecTit} afterSign={afterSign}  setAfterSign={setAfterSign} /><Trend info={data}/>, <Main  info={data} aside={aside} setData={setData} afterSign={afterSign} setAfterSign={setAfterSign} filt={filt} setFilt={setFilt} user={user}/></>}></Route>
            <Route path='/:id' element={<NewDetail setHeadColor={setHeadColor}/>}/>
            <Route path="/ourstory" element={<OurStory setHeadColor={setHeadColor}/>}></Route>
            <Route path="/membership" element={<Membership  setHeadColor={setHeadColor}/>}/>
            <Route path="/write" element={<Write  setHeadColor={setHeadColor}/>}/>
+           </Route>
          </Routes>
          </>
     }     

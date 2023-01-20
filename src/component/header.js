@@ -25,7 +25,7 @@ const Header =({afterSign, setAfterSign, data ,setData, user, filt, setFilt, hea
             setScroll(false)
         }
     }
-    setHeadColor(scroll? 'white': 'white') //#FFC017
+    setHeadColor(scroll? '#FFC017': 'white') //#FFC017
     window.addEventListener("scroll", changeColor)
     return (
         <div className="row contain justify-content-between  navOne" style={{backgroundColor:color}}  >
