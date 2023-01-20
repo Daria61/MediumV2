@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import Write from '../component/write'
 const Header =({afterSign, data ,setData, user, refresh, setAdmin})=>{
     const [writeModal, setWriteModal] = useState(false)
@@ -28,7 +29,7 @@ const Header =({afterSign, data ,setData, user, refresh, setAdmin})=>{
                         <i class="bi bi-pencil-square"></i>
                         <p className='px-1 m-0' onClick={()=>setWriteModal(true)}>Write</p>
                     </div>
-                    <button className='btn btn-outline-dark col-3' onClick={()=>setAdmin(true)}> Admin</button>
+                    <NavLink to='/admin' className='btn btn-outline-dark col-3' onClick={()=>setAdmin(true)}>Admin</NavLink>
                     <div className='col-3 col-md-3'>
                         <i class="bi bi-bell"></i>
                     </div>
