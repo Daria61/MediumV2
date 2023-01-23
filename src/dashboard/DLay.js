@@ -1,16 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Outlet, NavLink } from 'react-router-dom'
+import Dheader from './Dheader'
+import { useEffect } from 'react'
 
-
-export default function Home({news}) {
+export default function Home() {
+  const [news, setNews] = useState()
+   useEffect(()=>{
+    fetch('https://medium-api-psi.vercel.app/api/news')
+  .then((res)=>res.json())
+  .then((data)=>{
+    console.log(data);
+    setNews(data.result)
+  })
+  .catch((err)=> console.log(err))
+  },[])
   return (
+    <>
+    <Dheader/>
     <div>
       <div className='row text-start'>
         <div className='col-3'>
-          <div className='p-2'> <NavLink to='/admin/home'>Home</NavLink></div>
-          <div className='p-2'> <NavLink to='/admin/dashboard'>Dashboard</NavLink></div>
-          <div className='p-2'> <NavLink to='/admin/news'>News</NavLink></div>
-          <div className='p-2'> <NavLink to='/admin/users'>Users</NavLink></div>
+          <div className='p-2'> <NavLink to='/admin'>Home</NavLink></div>
+          <div className='p-2'> <NavLink to='/dashboard'>Dashboard</NavLink></div>
+          <div className='p-2'> <NavLink to='/news'>News</NavLink></div>
+          <div className='p-2'> <NavLink to='/users'>Users</NavLink></div>
         </div>
         <div className='col-9'>
         <div className='row'>
@@ -45,6 +58,6 @@ export default function Home({news}) {
         <Outlet/>
         </div>
       </div>
-    </div>
+    </div></>
   )
 }

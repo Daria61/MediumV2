@@ -6,17 +6,21 @@ const Header =({afterSign, setAfterSign, data ,setData, user, filt, setFilt, hea
     
     const [modal, setModal] = useState(false)
     const [scroll, setScroll] = useState(false)
+
     const ModalStatus = ()=>{
         setModal(!modal)
     }
+
     const refresh=()=>{
         setFilt({...filt, filtStatus: false, filtCategory: ""})
     }
+
     if(afterSign){
         return(
             <SignHeader afterSign={afterSign}  setAfterSign={setAfterSign}  data={data} setData={setData} user={user} refresh={refresh} setAdmin={setAdmin}/>
         )
     }
+
     let color = headColor
     const changeColor =()=>{
         if(window.scrollY > 500){
@@ -25,6 +29,7 @@ const Header =({afterSign, setAfterSign, data ,setData, user, filt, setFilt, hea
             setScroll(false)
         }
     }
+    
     setHeadColor(scroll? '#FFC017': 'white') //#FFC017
     window.addEventListener("scroll", changeColor)
     return (

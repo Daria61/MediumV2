@@ -1,6 +1,6 @@
 import Aside from "./aside"
 import { Link } from "react-router-dom"
-const main =({info, aside, afterSign , setFilt, filt, setAfterSign , setData, user})=>{
+const main =({info, aside, afterSign , setFilt, filt , setData, user})=>{
     const Btnsave=(para)=>{
        setData( info.map((a)=>{
         if(a.id=== para.id){

@@ -1,6 +1,16 @@
 import React from 'react'
-
-export default function Dnews({news}) {
+import { useEffect, useState } from 'react'
+export default function Dnews() {
+  const [news, setNews] = useState()
+  useEffect(()=>{
+   fetch('https://medium-api-psi.vercel.app/api/news')
+ .then((res)=>res.json())
+ .then((data)=>{
+   console.log(data);
+   setNews(data.result)
+ })
+ .catch((err)=> console.log(err))
+ },[])
   return (
     <div>
       <div>
