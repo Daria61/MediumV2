@@ -1,15 +1,25 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import Write from '../component/write'
-const Header =({afterSign, data ,setData, user, refresh})=>{
+import Write from './Write'
+import { useContext } from 'react'
+import { Data } from '../context/create.context'
+import { Sign } from '../context/create.context'
+
+const SignHeader =({user, refresh})=>{
     const [writeModal, setWriteModal] = useState(false)
     const [play, setPlay]=useState(false)
+
+    const {afterSign} = useContext(Sign)
+    const {data, setData} = useContext(Data)
+
     const writeModalStatus=()=>{
         setWriteModal(!writeModal)
     }
+
     const showProfile=()=>{
         setPlay(!play)
     }
+    
     const dis = play? "block":"none"
     if(afterSign){
         return(
@@ -58,4 +68,4 @@ const Header =({afterSign, data ,setData, user, refresh})=>{
         )
     }
 }
-export default Header
+export default SignHeader

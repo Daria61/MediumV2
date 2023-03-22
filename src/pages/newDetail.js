@@ -1,12 +1,17 @@
 import React from 'react'
-import Data from '../component/data'
+import Data from '../component/Data'
 import { useParams } from 'react-router-dom'
+import { useContext } from 'react'
+import { HeaderColor } from '../context/create.context'
 
-export default function NewDetail({setHeadColor}) {
+export default function NewDetail() {
+  const {setHeadColor} = useContext(HeaderColor)
+
   setHeadColor("#fff")
     const {id} = useParams()
     const showNow = Data.filter((a)=> id === a.id)
     console.log(showNow);
+    
   return (
     <div>
       <div className='m-auto row' style={{maxWidth:"1150px",paddingTop:"80px"}}>

@@ -1,16 +1,24 @@
 import { useState } from 'react'
-const Modal =({modal, ModalStatus , afterSign, setAfterSign , user })=>{
+import { useContext } from 'react';
+import { Sign } from '../context/create.context';
+
+const Modal =({modal, ModalStatus , user })=>{
     const dis = modal? "block":"none";
     const [mail ,setMail] = useState("")
     const [ sign, setSign] = useState(false)
+
+    const { setAfterSign} = useContext(Sign)
+
     const signMail =()=>{
         setSign(true)
     }
+
     const checkMail =()=>{
         if(mail=== user.mail){
             setAfterSign(true)
         }
     }
+
     if(sign){
         return(
             <div className="modal d-flex justify-content-center" onClick={ModalStatus} style={{display:dis}}>

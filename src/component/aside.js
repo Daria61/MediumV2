@@ -1,14 +1,23 @@
-const aside =({footer ,info, setFilt, filt})=>{
+import { useContext } from "react"
+import { Data } from "../context/create.context"
+
+const Aside =({ setFilt, filt})=>{
+    const {data} = useContext(Data)
+
+    let aside =["Help", "Status", "Writers", "Blog", "Careers", "Privacy", "Tems", "About", "Text to speech"]
     let category =[]
-    info.map((a)=>{
+
+    data.map((a)=>{
         if(!category.includes(a.category)){
             category.push(a.category)
         }
         return category
     })
+
     const Filter =(para)=>{
         setFilt({...filt, filtStatus: true, filtCategory: para})
     }
+
     return(
            <div className="col-4 d-none d-lg-block pe-5 position-absolute top-0 end-0  " >
                 <div>
@@ -22,7 +31,7 @@ const aside =({footer ,info, setFilt, filt})=>{
                     })}
                 </div>
                 <div className="border-top pt-2 d-flex flex-wrap ">
-                    {footer.map((a)=>{
+                    {aside.map((a)=>{
                         return(
                             <a style={{fontSize:"14px", color:"#757575", padding:"5px 10px", textDecoration:"none"}}  href="a" >{a}</a>
                         )
@@ -31,4 +40,4 @@ const aside =({footer ,info, setFilt, filt})=>{
             </div> 
     )
 }
-export default aside 
+export default Aside 

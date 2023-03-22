@@ -1,29 +1,21 @@
 import './App.css';
-import Header from './component/header';
-import HeadSection from './component/HeadSection'
-import Trend from './component/trend'
-import Main from './component/main'
-import News from './component/data';
+import Header from './component/Header';
+import News from './component/Data';
 import {Routes, Route} from "react-router-dom"
-import OurStory from "./pages/ourStory"
-import Write from './pages/write';
-import NewDetail from './pages/newDetail';
-import Membership from "./pages/membership"
+import OurStory from "./pages/OurStory"
+import Write from './pages/Write';
+import NewDetail from './pages/NewDetail';
+import Membership from "./pages/Membership"
 import React, { useState } from 'react'
-
-import Dashboard from '../src/dashboard/Dashboard'
-import Home from '../src/dashboard/Dhome'
-import Lay from '../src/dashboard/DLay'
-import Dnews from '../src/dashboard/Dnews'
-import Duser from '../src/dashboard/Duser'
-
-
-let headSecTit = { HeadTit:"Stay curious.", Tit:"Discover stories, thinking, and expertise from writers on any topic.", Btn:"Start reading"}
-let aside =["Help", "Status", "Writers", "Blog", "Careers", "Privacy", "Tems", "About", "Text to speech"]
+import Home from './pages/Home';
+// import Dashboard from '../src/dashboard/Dashboard'
+// import Home from '../src/dashboard/Dhome'
+// import Lay from '../src/dashboard/DLay'
+// import Dnews from '../src/dashboard/Dnews'
+// import Duser from '../src/dashboard/Duser';
+import ContextService from  "./context/contextService";
 
 function App() {
-
-
   const filtObj={
     filtStatus: false,
     filtCategory: ""
@@ -32,31 +24,29 @@ function App() {
   const [filt , setFilt] = useState(filtObj)
   const [data, setData]= useState(News)
   const [headColor, setHeadColor] = useState("")
-  const user = {mail : "ch.d@gmail.com", pas : 9988 , Name: "Ch. Erdenedari", userId:"abc", img:require("./image/profile.png") }
+  
   return (
     <div className="App">
-      {
-       <>      
+      <ContextService afterSign={afterSign}  setAfterSign={setAfterSign} data={data} setData={setData} headColor={headColor} setHeadColor={setHeadColor} >
       <Routes>
-       <Route  element={<Header afterSign={afterSign}  setAfterSign={setAfterSign} data={data} setData={setData} user={user} filt={filt} setFilt={setFilt} headColor={headColor} setHeadColor={setHeadColor} />}>
-        <Route index element={<><HeadSection {...headSecTit} afterSign={afterSign}  setAfterSign={setAfterSign} /><Trend info={data}/>, <Main  info={data} aside={aside} setData={setData} afterSign={afterSign} setAfterSign={setAfterSign} filt={filt} setFilt={setFilt} user={user}/></>}></Route>
-        <Route path='/:id' element={<NewDetail setHeadColor={setHeadColor}/>}/>
-        <Route path="/ourstory" element={<OurStory setHeadColor={setHeadColor}/>}></Route>
-        <Route path="/membership" element={<Membership  setHeadColor={setHeadColor}/>}/>
-        <Route path="/write" element={<Write  setHeadColor={setHeadColor}/>}/>
-        </Route>
+       <Route  element={<Header filt={filt} setFilt={setFilt} />}>
+        <Route index path="/" element={<Home  filt={filt} setFilt={setFilt}/>} />
+        <Route path='/:id' element={<NewDetail/>}/>
+        <Route path="/ourstory" element={<OurStory />}></Route>
+        <Route path="/membership" element={<Membership />}/>
+        <Route path="/write" element={<Write />}/>
+       </Route>
       </Routes>
 
-      <Routes>
+      {/* <Routes>
         <Route  element={<Lay />}>
           <Route index path='/admin' element={<Home />}></Route>
           <Route path='/dashboard' element={<Dashboard/>}></Route>
           <Route path='/news' element={<Dnews/>} ></Route>
           <Route path='/users' element={<Duser/>}></Route>
         </Route>
-      </Routes> 
-      </>
-    }     
+      </Routes>  */}
+      </ContextService>
     </div>
   );
 }

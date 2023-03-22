@@ -1,11 +1,20 @@
 
-import Modal from "./modal"
-import {useState} from "react"
-import SignHeader from '../componentTwo/Header'
-const Header =({afterSign, setAfterSign, data ,setData, user, filt, setFilt, headColor, setHeadColor, setAdmin})=>{
-    
+import Modal from "./Modal"
+import {useEffect, useState} from "react"
+import SignHeader from './SignHeader'
+import { useContext } from "react"
+import { Sign } from "../context/create.context"
+import { HeaderColor } from "../context/create.context"
+
+
+const Header =({ filt, setFilt})=>{
+    const user = {mail : "", pas : 9988 , Name: "Ch. Erdenedari", userId:"abc", img:require("../image/profile.png") }
+    const {afterSign} = useContext(Sign)
+    const {headColor, setHeadColor} = useContext(HeaderColor)
+
     const [modal, setModal] = useState(false)
     const [scroll, setScroll] = useState(false)
+    
 
     const ModalStatus = ()=>{
         setModal(!modal)
@@ -15,13 +24,6 @@ const Header =({afterSign, setAfterSign, data ,setData, user, filt, setFilt, hea
         setFilt({...filt, filtStatus: false, filtCategory: ""})
     }
 
-    if(afterSign){
-        return(
-            <SignHeader afterSign={afterSign}  setAfterSign={setAfterSign}  data={data} setData={setData} user={user} refresh={refresh} setAdmin={setAdmin}/>
-        )
-    }
-
-    let color = headColor
     const changeColor =()=>{
         if(window.scrollY > 500){
             setScroll(true)
@@ -30,12 +32,19 @@ const Header =({afterSign, setAfterSign, data ,setData, user, filt, setFilt, hea
         }
     }
     
-    setHeadColor(scroll? '#FFC017': 'white') //#FFC017
+    useEffect(()=>{setHeadColor(scroll? 'white': '#FFC017')},[ scroll])
+     //#FFC017
     window.addEventListener("scroll", changeColor)
+
+    if(afterSign){
+        return(
+            <SignHeader  user={user} refresh={refresh} />
+        )
+    }else{
     return (
-        <div className="row contain justify-content-between  navOne" style={{backgroundColor:color}}  >
+        <div className="row contain justify-content-between  navOne" style={{backgroundColor:headColor}}  >
             <div className="col-2 py-1">
-               <a href="/"> <img src={require("../image/mediumlogo.png")} alt="a" className="w-100" onClick={refresh}/></a>
+                <img src={require("../image/mediumlogo.png")} alt="a" className="w-100" onClick={refresh}/>
             </div>
             <div className="col-6 row d-flex  flex-nowrap">
                 <div className="col d-flex align-items-center justify-content-end">
@@ -49,9 +58,10 @@ const Header =({afterSign, setAfterSign, data ,setData, user, filt, setFilt, hea
                 </div>
             </div>
             <div>
-                {modal && (<Modal ModalStatus = {ModalStatus} modal={modal} afterSign={afterSign}  setAfterSign={setAfterSign} user={user}/>)}
+                {modal && (<Modal ModalStatus = {ModalStatus} modal={modal}  user={user}/>)}
             </div>
         </div>
     )
+    }
 }
 export default Header

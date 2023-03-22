@@ -1,11 +1,18 @@
-const trend =({info})=>{
+import { useContext } from 'react'
+import { Data } from '../context/create.context'
+
+const Trend =()=>{
+
+    const { data } = useContext(Data)
+
     let trendarr =[]
-    info.map((a)=>{
+    data.map((a)=>{
         if(a.isTrending === true){
             trendarr.push(a)
         }
         return trendarr
     })
+
     return(
         <div style={{padding:"50px", marginBottom:"50px",maxWidth:"1100px"}} className="border-bottom  d-inline-block ">
             <div className="d-flex">
@@ -45,4 +52,4 @@ const trend =({info})=>{
         </div>
     )
 }
-export default trend
+export default Trend

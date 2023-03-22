@@ -1,6 +1,10 @@
 import React from 'react'
+import { useContext } from 'react'
+import { HeaderColor } from '../context/create.context'
 
-export default function Write({setHeadColor}) {
+export default function Write() {
+  const {setHeadColor} = useContext(HeaderColor)
+
     setHeadColor("#f24d2e")
   return (
     <div>

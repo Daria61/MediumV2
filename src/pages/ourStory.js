@@ -1,4 +1,6 @@
 import React from 'react'
+import { useContext } from 'react'
+import { HeaderColor } from '../context/create.context'
 
 const empArr = [
   {id:"1",
@@ -51,7 +53,9 @@ const empArr = [
   },
 ]
 
-export default function ourStory({setHeadColor}) {
+export default function OurStory() {
+  const {setHeadColor} = useContext(HeaderColor)
+
   setHeadColor("white")
 
   return (

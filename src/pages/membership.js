@@ -1,6 +1,11 @@
 import React from 'react'
+import { useContext } from 'react'
+import { HeaderColor } from '../context/create.context'
 
-export default function Membership({ setHeadColor}) {
+export default function Membership() {
+
+  const {setHeadColor} = useContext(HeaderColor)
+
   setHeadColor("#4479ff")
   return (
     <div className='text-white'>

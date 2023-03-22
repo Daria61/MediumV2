@@ -1,8 +1,15 @@
-import Aside from "./aside"
+import Aside from "./Aside"
 import { Link } from "react-router-dom"
-const main =({info, aside, afterSign , setFilt, filt , setData, user})=>{
+import { useContext } from "react"
+import { Data } from "../context/create.context"
+import { Sign } from "../context/create.context"
+
+const Main =({  setFilt, filt ,  user})=>{
+    const {data, setData} = useContext(Data)
+    const { afterSign } = useContext(Sign)
+
     const Btnsave=(para)=>{
-       setData( info.map((a)=>{
+       setData( data.map((a)=>{
         if(a.id=== para.id){
             return {...a, save: !a.save}
         }
@@ -10,8 +17,9 @@ const main =({info, aside, afterSign , setFilt, filt , setData, user})=>{
     })
        )
     }
+
     if(filt.filtStatus){
-        let bb = info.filter(a=> a.category === filt.filtCategory)
+        let bb = data.filter(a=> a.category === filt.filtCategory)
         return(
             <div className="contain position-relative m-auto row" style={{maxWidth:"1150px"}} >
                 {bb.map((a, index)=>{
@@ -44,13 +52,14 @@ const main =({info, aside, afterSign , setFilt, filt , setData, user})=>{
                         </div>
                     )
                 })}
-                <Aside footer={aside} info={info} filt={filt} setFilt={setFilt} />
+                <Aside  filt={filt} setFilt={setFilt} />
             </div>
         )
     }
+
     return(
         <div className="contain position-relative m-auto row" style={{maxWidth:"1150px"}} >
-            {info.map((a)=>{
+            {data.map((a)=>{
                 return(
                     <div className="col-12 my-2" style={{maxWidth:"700px"}}>
                         <div className="d-flex align-items-center">
@@ -80,8 +89,8 @@ const main =({info, aside, afterSign , setFilt, filt , setData, user})=>{
                     </div>
                 )
             })}
-            <Aside footer={aside} info={info} filt={filt} setFilt={setFilt} />
+            <Aside/>
         </div>
     )
 }
-export default main
+export default Main
